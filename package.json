@@ -1,0 +1,25 @@
+{
+  "name": "ros-map-editor",
+  "version": "1.0.0",
+  "description": "This project supports editing of PGM files",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamDotworld/ros-map-editor.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeamDotworld/ros-map-editor/issues"
+  },
+  "homepage": "https://github.com/TeamDotworld/ros-map-editor#readme",
+  "dependencies": {
+    "easeljs": "^1.0.2"
+  },
+  "devDependencies": {
+    "rollup": "^2.26.7"
+  }
+}
