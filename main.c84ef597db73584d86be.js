@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[function(o,n){console.log("Hello World!")}],[[0,1]]]);
