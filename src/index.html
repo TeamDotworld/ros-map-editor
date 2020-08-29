@@ -5,10 +5,20 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ROS Map editor - Dotworld Technologies</title>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-
+	<label for="stroke">Volume (between 0 and 50):</label>
+    <input type="range" id="stroke" name="vol" min="10" max="50">
+    <select id="color-selector">
+        <option value="#fff" selected>Open space</option>
+        <option value="#cdcdcd">Unknown space</option>
+        <option value="#000">Black</option>
+    </select>
+	<div id="canvas-container"></div>
+	
 </body>
 
 </html>

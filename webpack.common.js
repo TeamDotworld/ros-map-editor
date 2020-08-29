@@ -1,7 +1,8 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
 module.exports = {
   entry: './src/index.js',
@@ -30,6 +31,9 @@ module.exports = {
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true,
+    }),
+    new CopyPlugin({
+      patterns: ['public'],
     }),
   ],
   resolve: {
