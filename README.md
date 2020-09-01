@@ -1,4 +1,4 @@
-# ros-map-editor
+# ROS Map editor
 This project supports editing of PGM files
 
 
