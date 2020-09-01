@@ -44,7 +44,7 @@ document.querySelector('#color-selector').addEventListener('change', (e) => {
 });
 
 function initProcess() {
-  stage = new Stage('myMap');
+  stage = new Stage('myCanvas');
   stage.autoClear = false;
   stage.enableDOMEvents(true);
   Touch.enable(stage);
@@ -56,6 +56,30 @@ function initProcess() {
   stage.update();
 }
 
+/* (function generateMap() {
+  if (window.Worker) {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'myWorkerCanvas';
+    ds.appendChild(canvas);
+    const hasOffscreenSupport = !!canvas.transferControlToOffscreen;
+    if (hasOffscreenSupport) {
+      const offscreen = canvas.transferControlToOffscreen();
+      const myWorker = new Worker('./worker.js', { type: 'module' });
+      myWorker.postMessage({ canvas: offscreen }, [offscreen]);
+      myWorker.onmessage = function onmessage(e) {
+        if (e.data.created) {
+          console.log('Recevied message from worker');
+          initProcess();
+        }
+      };
+    }
+  } else {
+    // eslint-disable-next-line no-alert
+    alert("Your browser won't support worker");
+  }
+}());
+ */
+
 (function generateMap() {
   fetch('/map.pgm')
     .then((response) => response.ok && response.blob())
@@ -65,10 +89,9 @@ function initProcess() {
       fileReader.readAsBinaryString(buffer);
       fileReader.onload = function onload(event) {
         arrayBuffer = event.target.result;
-        console.log(arrayBuffer);
         const img = new ImageViewer(arrayBuffer);
         const canvas = img.getCanvas();
-        canvas.id = 'myMap';
+        canvas.id = 'myCanvas';
         ds.appendChild(canvas);
         initProcess();
       };

@@ -3,6 +3,8 @@ const CopyPlugin = require('copy-webpack-plugin');// eslint-disable-line import/
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const WorkboxPlugin = require('workbox-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
+const WorkerPlugin = require('worker-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -35,6 +37,7 @@ module.exports = {
     new CopyPlugin({
       patterns: ['public'],
     }),
+    new WorkerPlugin(),
   ],
   resolve: {
     extensions: ['.ts', '.js'],
